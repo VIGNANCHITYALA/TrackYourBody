@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Diet Plan</title>
+ <style>
+ body {
+ font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+ text-align: center;
+ margin: 20px;
+ background-color: #f5f5f5;
+ color: #333;
+ }
+ h1 {
+ color: #4caf50;
+ margin-bottom: 20px;
+ }
+ table {
+ width: 80%;
+ margin: 20px auto;
+ border-collapse: collapse;
+ background-color: #fff;
+ box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+ border-radius: 8px;
+ }
+ th, td {
+ border: 1px solid #ddd;
+ padding: 12px;
+ text-align: left;
+ }
+ th {
+ background-color: #f2f2f2;
+ }
+ img {
+ max-width: 70px;
+ max-height: 70px;
+ border-radius: 70%;
+ }
+ h2 {
+ color: #4caf50;
+ margin-top: 20px;
+ }
+ p {
+ margin: 10px 0;
+ color: #555;
+ }
+ </style>
+</head>
+<body>
+ <h1>Diet Plan</h1>
+ <script>
+ const urlParams = new URLSearchParams(window.location.search);
+ const weight = parseFloat(urlParams.get('weight'));
+const bmi = parseFloat(urlParams.get('bmi'));
+ 
+ const proteinMaintain = 1.2;
+ const carbMaintain = 2;
+ const fatMaintain = 0.7;
+ const proteinLoss = 1.2;
+ const carbLoss = 1;
+ const fatLoss = 0.7;
+ const proteinGain = 2.5;
+ const carbGain = 3;
+ const fatGain = 1.5;
+ const calciumRequirement = 1000;
+ const waterRequirement = 4;
+ const proteinAmount = (goal) => goal * weight;
+ const carbAmount = (goal) => goal * weight;
+ const fatAmount = (goal) => goal * weight;
+ document.write(`<p>Your weight is ${weight} kg.</p>`);
+ 
+ if (bmi < 18.5) {
+ document.write('<p>Underweight Diet Plan:</p>');
+ document.write(`<p>Proteins: ${proteinAmount(proteinGain)} g</p>`);
+ document.write(`<p>Carbs: ${carbAmount(carbGain)} g</p>`);
+ document.write(`<p>Fats: ${fatAmount(fatGain)} g</p>`);
+ } else if (bmi >= 25) {
+ document.write('<p>Overweight Diet Plan:</p>');
+ document.write(`<p>Proteins: ${proteinAmount(proteinLoss)} g</p>`);
+ document.write(`<p>Carbs: ${carbAmount(carbLoss)} g</p>`);
+ document.write(`<p>Fats: ${fatAmount(fatLoss)} g</p>`);
+ } else {
+ document.write('<p>Maintenance Diet Plan:</p>');
+ document.write(`<p>Proteins: ${proteinAmount(proteinMaintain)} g</p>`);
+ document.write(`<p>Carbs: ${carbAmount(carbMaintain)} g</p>`);
+ document.write(`<p>Fats: ${fatAmount(fatMaintain)} g</p>`);
+ }
+ document.write(`<p>Calcium Requirement: ${calciumRequirement} 
+mg</p>`);
+ document.write(`<p>Water Requirement: ${waterRequirement} liters</p>`);
+ </script>
+ <h1>Proteins Rich Items</h1>
+ <h2>Vegetarian Sources</h2>
+ <table>
+ <tr>
+ <th>Item Name</th>
+ <th>Image</th>
+ <th>Proteins per 100g</th>
+ </tr>
+ <tr>
+ <td>Soya Chunks</td>
+ <td><img src="https://media.istockphoto.com/id/1250631420/photo/soyachunks.jpg?s=1024x1024&w=is&k=20&c=WI1XZVnxpIe1H6otQj_32qljNNlALu
+M1rdQOZNuvXFc="></td>
+ <td>52g</td>
+ </tr>
+<tr>
+ <td>Soyabean</td>
+ <td><img 
+src="https://shop.organicmandya.com/cdn/shop/products/Soyabean_2_869x869.jpg
+?v=1605758238"></td>
+ <td>36g</td>
+ </tr>
+ <tr>
+ <td>Groundnuts</td>
+ <td><img src="https://5.imimg.com/data5/QR/YQ/MY16663506/groundnut-seeds-500x500.jpg"></td>
+ <td>26g</td>
+ </tr>
+ <tr>
+ <td>Lentils</td>
+ <td><img 
+src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/3_types_of_lenti
+l.png/1920px-3_types_of_lentil.png"></td>
+ <td>25g</td>
+ </tr>
+<tr>
+ <td>Moong dal</td>
+ <td><img src="https://www.gomothers.in/wpcontent/uploads/2020/06/sabut-moong.jpg"></td>
+ <td>24g</td>
+</tr>
+<tr>
+ <td>Paneer</td>
+ <td><img 
+src="https://images.jdmagicbox.com/quickquotes/images_main/fresh-panner384915503-afysy.png"></td>
+ <td>18g</td>
+</tr>
+ </table>
+ <h2>Non-Vegetarian Sources</h2>
+ <table>
+ <tr>
+ <th>Item Name</th>
+ <th>Image</th>
+ <th>Proteins per 100g</th>
+ </tr>
+ <tr>
+ <td>Chicken Breast</td>
+ <td><img src="https://static.freshtohome.com/cdncgi/image/width=400/https://static.freshtohome.com/media/catalog/product/c/h/chic
+ken_breast_fillet_1.jpg"></td>
+ <td>30g</td>
+ </tr>
+<tr>
+ <td>Turkey</td>
+ <td><img 
+src="https://images.hindustantimes.com/rf/image_size_630x354/HT/p2/2019/01/23
+/Pictures/protein_40b28844-1ecd-11e9-b167-adec038abe27.jpg"></td>
+ <td>29g</td>
+ </tr>
+<tr>
+ <td>Chicken Leg</td>
+ <td><img src="https://classymeat.com/wpcontent/uploads/2019/07/Chicken-Leg-with-Thigh.jpg"></td>
+ <td>28g</td>
+ </tr>
+<tr>
+ <td>Fish</td>
+ <td><img 
+src="https://www.bigbasket.com/media/uploads/p/l/10000737_29-fresho-catla-fishsteakslice.jpg?tr=w-640,q=80"></td>
+ <td>22g</td>
+ </tr>
+<tr>
+ <td>Eggs</td>
+ <td><img src="https://www.licious.in/blog/wpcontent/uploads/2022/01/eggs-1-1024x1024.jpg"></td>
+ <td>13g</td>
+ </tr>
+ </table>
+ <h1>Carbohydrates Rich Items</h1>
+ <table>
+ <tr>
+ <th>Item Name</th>
+ <th>Image</th>
+ <th>Carbohydrates per 100g</th>
+ </tr>
+ <tr>
+ <td>Rice</td>
+ <td><img src="https://images.moneycontrol.com/staticmcnews/2023/06/How-to-keep-your-immunity-strong-avoid-white-rice770x433.jpg?impolicy=website&width=770&height=431"></td>
+ <td>28g</td>
+ </tr>
+<tr>
+ <td>Wheat</td>
+ <td><img 
+src="https://kjcdn.gumlet.io/media/81142/wheat.jpg?w=640&dpr=1.3"></td>
+ <td>76g</td>
+ </tr>
+<tr>
+ <td>Bread</td>
+ <td><img 
+src="https://www.bhg.com/thmb/ix1jf9aUXcxyFtekIBlVCAIBW4w=/750x0/filters:
+no_upscale():max_bytes(150000):strip_icc():format(webp)/BHG-milk-bread4CdeIL1uKGyB5ryU8J_EED-aaa76729c86a413ca7500029edba79f0.jpg"></td>
+ <td>49g</td>
+ </tr>
+<tr>
+ <td>Potatoes</td>
+ <td><img src="https://www.suburbansimplicity.com/wpcontent/uploads/2022/09/Potatoes-in-the-Instant-pot.jpg"></td>
+ <td>26g</td>
+ </tr>
+<tr>
+ <td>Beans</td>
+ <td><img
+src="https://www.eatingwell.com/thmb/r_fCbeSFD7Su5Kir5tF0hxvMhPE=/750x0/
+filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/GettyImages157280489-8c2e8608ee9f4f9abb38f000f633ebc7.jpg"></td>
+ <td>63g</td>
+ </tr>
+ 
+ </table>
+ <h1>Fats Rich Items</h1>
+ <table>
+ <tr>
+ <th>Item Name</th>
+ <th>Image</th>
+ <th>Fats per 100g</th>
+ </tr>
+ <tr>
+ <td>Ghee</td>
+ <td><img src="https://cdn.downtoearth.org.in/library/large/2023-01-
+30/0.70195400_1675086617_ghee.jpg"></td>
+ <td>14g</td>
+ </tr>
+<tr>
+ <td>Butter</td>
+ <td><img src="https://www.eatthis.com/wpcontent/uploads/sites/4/2022/12/buttere1671513126822.jpg?quality=82&strip=1&w=800"></td>
+ <td>11g</td>
+ </tr>
+<tr>
+ <td>Cheese</td>
+ <td><img src="https://static.independent.co.uk/s3fspublic/thumbnails/image/2017/08/24/10/istock531024761.jpg?quality=75&width=990&crop=3%3A2%2Csmart&auto=webp"></t
+d>
+ <td>33g</td>
+ </tr>
+<tr>
+ <td>Oils</td>
+ <td><img src="https://sugermint.com/wp-content/uploads/2021/02/BestCooking-Oil-for-Health.jpg"></td>
+ <td>100g</td>
+ </tr>
+<tr>
+ <td>Groundnuts</td>
+ <td><img src="https://cdn.wikifarmer.com/wpcontent/uploads/2023/07/Groundnut-Plant-Information-History-Uses-and-NutritionValue.jpg"></td>
+ <td>49g</td>
+ </tr>
+ </table>
+</body>
+</html>

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>TrackYourBody - Exercise Recommendations</title>
+ <style> 
+ body {
+ font-family: 'Arial', sans-serif;
+ margin: 0;
+ padding: 0;
+ background-color: #f4f4f4;
+ }
+ header {
+ background-color: #333;
+ color: #fff;
+ padding: 10px;
+ text-align: center;
+ }
+ #exerciseContainer {
+ max-width: 800px;
+ margin: 20px auto;
+ display: flex;
+ flex-wrap: wrap;
+ justify-content: space-around;
+ }
+24
+ .exerciseCard {
+ width: 30%;
+ margin: 10px;
+ background-color: #fff;
+ border: 1px solid #ddd;
+ border-radius: 8px;
+ overflow: hidden;
+ transition: transform 0.3s ease-in-out;
+ }
+ .exerciseCard:hover {
+ transform: scale(1.05);
+ }
+ .exerciseCard img {
+ width: 100%;
+ height: auto;
+ border-bottom: 1px solid #ddd;
+ }
+ .exerciseCard p {
+ padding: 10px;
+ font-size: 16px;
+ font-weight: bold;
+ text-align: center;
+ margin: 0;
+ }
+ .exerciseCard a {
+ display: block;
+ background-color: #333;
+ color: #fff;
+ text-align: center;
+ padding: 8px;
+ text-decoration: none;
+ font-weight: bold;
+ transition: background-color 0.3s ease-in-out;
+ }
+ .exerciseCard a:hover {
+ background-color: #555;
+ }
+ </style>
+</head>
+<body>
+ <header>
+ <h1>TrackYourBody - Exercise Recommendations</h1>
+ </header>
+ <div id="exerciseContainer"></div>
+ <script>
+ const urlParams = new URLSearchParams(window.location.search);
+ const bmi = parseFloat(urlParams.get('bmi'));
+ let exerciseRecommendations = [];
+ let headingText = '';
+ if (bmi >= 25) {
+ document.write('<h2>Recommendations for weight Loss</h2>');
+ document.write('<img src="https://www.fitnesschat.co/wpcontent/uploads/2022/02/best-Weight-loss-challenge-30-day.jpg">');
+ exerciseRecommendations = [
+ { name: 'Knee Push-Ups', image: 'https://cdn-0.weighttraining.guide/wpcontent/uploads/2017/06/push-up-on-kneesresized.png?ezimgfmt=ng%3Awebp%2Fngcb4', link: 
+'https://www.youtube.com/shorts/Iy9wkZS-gGI' },
+ { name: 'Exercise 2', image: 'exercise2.jpg', link: 'exercise2.html' },
+ { name: 'Exercise 3', image: 'exercise3.jpg', link: 'exercise3.html' },
+ { name: 'Exercise 3', image: 'exercise3.jpg', link: 'exercise3.html' },
+ { name: 'Exercise 5', image: 'exercise3.jpg', link: 'exercise3.html' },
+ ];
+ } else if (bmi < 18.5) {
+ document.write('<h2>Recommendations for weight Gain</h2>');
+ document.write('<img src="https://www.shape.com/thmb/77rKiaC93GyVhbOo_SXynoYsbw=/750x0/filters:no_upscale():max_bytes(150000):strip_ic
+c():format(webp)/autumn-calabrese-muscle-building-workout-plan-2-
+04cf1df91a124633868a1958a0c03aa9.jpg">');
+ exerciseRecommendations = [
+ { name: 'Back Biceps', image: 
+'https://www.facebook.com/BodyBuildingTipsnTricks/photos/a.342853802422290/
+2763931056981207/?__cft__[0]=AZUSI2p4rC3qShD3KscnzZ4JaYeCdKc9khAE_
+5l2YH_ORpD8SAxv2cPjtihWZP33w0ZPFWnQuXHU6NylKcZpNXUzBsgggrNUAmmelQPLhuEAdUN7xrZ3Voe_sctFQJOpZ2TL8CcNyLL
+ah7r6RElapWunHc2dI6Ze7Q8sNVNI5EwMQ&__tn__=EH-R', link: 
+'https://www.youtube.com/shorts/_A-8apvcATw' },
+ { name: 'Legs', image: 
+'https://www.bodybuilding.com/images/2016/june/leg-workouts-for-men-7-bestworkouts-for-quads-glutes-hams-header-v2-830x467.jpg', link: 
+'https://www.youtube.com/shorts/iNxlzxJqSok' },
+ { name: 'Triceps and Chest', image: 
+'https://www.facebook.com/musclemorphsupps/photos/a.686089555103272/141457
+8255587728/?__cft__[0]=AZVou_rQg9uZ3cavYZ8t6WUUcB7VpR0DLhb133jKaI
+eo5-
+qzEyBJ3hlPoeJp2ToD4yTmu7y2VTQBSBl1gdt5iKkm7fvfZFU2cR3jxcWdnEoYC
+xfbBtjdHDKFaFSE-6SmN7QHWrd7Lw5Iybwl-nfb7A2rcpgk23RhK2Oc1plKdfAEw&__tn__=EH-R', link: 
+'https://www.youtube.com/shorts/G5aRtTFK3mo' },
+ { name: 'Butt', image: 
+'https://img.mensxp.com/media/content/2022/Dec/Mountain-Climber--an-unknownbutt-Exercise_63a037193ea06.jpeg', link: 
+'https://www.youtube.com/shorts/HxLc4HyNwLk' },
+ { name: 'Shoulders and abs', image: 'https://scontent.fhyd10-
+1.fna.fbcdn.net/v/t39.30808-
+6/220243847_1421322891579931_7944143679097339469_n.jpg?_nc_cat=110&cc
+b=1-
+7&_nc_sid=c83dfd&_nc_ohc=C7eG1VSEOsUAX8sJYye&_nc_ht=scontent.fhyd1
+0-1.fna&oh=00_AfC3BfXaREt-hozhqHub24G5Gp7z-Y5fDmZDoLMnAMHgw&oe=657E6916', link: 'https://www.youtube.com/shorts/SH2A2RiLzg' },
+ ];
+ } else {
+ document.write('<h2>Regular exercise recommendations</h2>');
+ document.write('<img src="https://iamherbalifenutrition.com/wpcontent/uploads/2020/03/5-Exercises-You-Can-Do-Anywhere.jpg">');
+ exerciseRecommendations = [
+ { name: 'Side Squats', image: 
+'https://d2z0k43lzfi12d.cloudfront.net/blog/vcdn374/wpcontent/uploads/2018/10/cossack-squat-1.jpg', link: 
+'https://www.youtube.com/watch?v=Pe115ryKDwQ' },
+ { name: 'Bridge Lifts', image: 'https://hips.hearstapps.com/hmgprod/images/glutebridge-1603107150.jpg?resize=980:*', link: 
+'https://www.youtube.com/shorts/X_IGw8U_e38' },
+ { name: 'Reverse Lunge', image: 'https://hips.hearstapps.com/hmgprod/images/reverse-lunges-
+1544222100.jpg?crop=0.6235xw:1xh;center,top&resize=1200:*', link: 
+'https://www.youtube.com/shorts/mzPFverp8tM' },
+ { name: 'Push-Ups', image: 'https://www.fitnesseducation.edu.au/wpcontent/uploads/2020/10/Pushups.jpg', link: 
+'https://www.youtube.com/shorts/yQEx9OC2C3E' },
+ { name: 'Triceps Push-Ups', image: 'https://qph.cf2.quoracdn.net/mainqimg-2112376a7f5c0c65cd45907704dc686f', link: 
+'https://www.youtube.com/shorts/IDITzHbdf4U' },
+ ];
+ }
+ const exerciseContainer = document.getElementById('exerciseContainer');
+ exerciseRecommendations.forEach(exercise => {
+ const exerciseCard = document.createElement('div');
+ exerciseCard.classList.add('exerciseCard');
+ exerciseCard.innerHTML = `
+ <img src="${exercise.image}" alt="${exercise.name}">
+ <p>${exercise.name}</p>
+ <a href="${exercise.link}" target="_blank">Learn More</a>
+ `;
+ exerciseContainer.appendChild(exerciseCard);
+ });
+ </script>
+</body>
+</html>
